@@ -6,10 +6,5 @@ export enum Constants {
 }
 
 export function getStringFromConfig(variableName: Constants): string {
-  if (!process.env[variableName]) {
-    throw new Error(
-      `Variable ${variableName} is not specified in your environment`,
-    );
-  }
   return String(process.env[variableName]);
 }
