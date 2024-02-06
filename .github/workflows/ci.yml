@@ -16,10 +16,17 @@ jobs:
       - name: Setup java
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: '21'
+          distribution: "zulu"
+          java-version: "21"
       - run: npm ci
       - run: npm test
+        env:
+          DYNAMOCLIENT_ENDPOINT_OVERRIDE: http://127.0.0.1:8000
+          DYNAMODB_CARD_TABLENAME: cards
+          AWS_REGION: eu-west-1
+          AWS_ACCESS_KEY_ID: empty
+          AWS_SECRET_ACCESS_KEY: empty
+          AWS_SESSION_TOKEN: empty
       - run: npm run test:coverage
       - run: npm run lint
       - run: npm run check-format
