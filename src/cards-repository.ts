@@ -10,4 +10,13 @@ export class CardsRepositoryDynamo {
     const queryResults = await this.cardEntity.query(spaceID);
     return queryResults.Items as Card[];
   }
+  public async listCardChildren(
+    spaceID: string,
+    cardID: string,
+  ): Promise<Card[]> {
+    const queryResults = await this.cardEntity.query(spaceID, {
+      beginsWith: `CARD${cardID}_L`,
+    });
+    return queryResults.Items as Card[];
+  }
 }

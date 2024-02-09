@@ -33,6 +33,7 @@
     "@aws-sdk/lib-dynamodb": "^3.507.0",
     "cards-model": "github:anton-107/cards-model",
     "dotenv": "^16.4.1",
-    "dynamodb-toolbox": "^0.9.2"
+    "dynamodb-toolbox": "^0.9.2",
+    "short-uuid": "^4.2.2"
   }
 }
